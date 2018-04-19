@@ -52,9 +52,6 @@ export default {
               notify:this.$notify,
               router:this.$router
           })
-        //   login(this.username, this.password, "123").then(res => {
-        //     console.log(res);
-        //   });
         } else {
           this.$notify({
             title: "错误",

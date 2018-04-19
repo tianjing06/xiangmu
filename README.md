@@ -1,21 +1,27 @@
-# xiangmu
+# 项目总结
 
-> A Vue.js project
+> 
 
-## Build Setup
+## 后台管理系统
 
 ``` bash
-# install dependencies
-npm install
+# 技术选型
+项目基于 webpack 模板,框架采用Vue,使用到的技术有vuex，Element-UI，es6，less等。
+考虑到开发人员比较少，vue配套的element-ui框架及脚手架比较完善和满足需求，所以选用vue框架。
+使用es6语法，是因为es5有一些语言特性的缺失,如：没有模块管理，没有块级作用域，全局变量易污染等等，
+而且es6也已经开始普及使用了，同时用es6也不用担心环境是否支持（babel）。
+选用less是因为less 简单,易上手;属于css的基础拓展，更适合静态界面写样式。
 
-# serve with hot reload at localhost:8080
-npm run dev
+# 路由搭建
+未完待续
 
-# build for production with minification
-npm run build
+# 数据请求，及封装，全局请求接口
+。。。。。
 
-# build for production and view the bundle analyzer report
-npm run build --report
+# 项目中的核心功能和难点功能
+。。。。。
+# 数据管理
+。。。。。
+# 遇到的困难及解决方式
+。。。。。
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
