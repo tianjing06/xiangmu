@@ -14,7 +14,7 @@
       <dsp-tab-item v-for="x in tabData" name="x.name" :key='x.name'>
           <el-upload
               class="avatar-uploader"
-              action="https://jsonplaceholder.typicode.com/posts/"
+              action="http://localhost:8080/dsp-creative/creative/upload"
               :show-file-list="false"
               :on-success="handleAvatarSuccess"
               :before-upload="beforeAvatarUpload">
