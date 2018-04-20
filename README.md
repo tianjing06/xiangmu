@@ -13,15 +13,138 @@
 选用less是因为less 简单,易上手;属于css的基础拓展，更适合静态界面写样式。
 
 # 路由搭建
-未完待续
+const router = new Router({
+  routes: [
+    { path: '/', redirect: '/login' },
+    {
+      path: '/',
+      name: 'Home',
+      component: Home,
+      children: [
+        {
+          path: '/home/homePage',
+          name: 'HomePage',
+          component: HomePage
+        },
+        { path: '//home/advertisement', redirect: '/home/advertisement/originality' },
+        {
+          path: '/home/advertisement',
+          name: 'Advertisement',
+          component: Advertisement,
+          children: [
+            {
+              path: '/home/advertisement/plan',
+              name: 'Plan',
+              component: Plan
+            },
+            {
+              path: '/home/advertisement/unit',
+              name: 'Unit',
+              component: Unit
+            },
+            {
+              path: '/home/advertisement/originality',
+              name: 'Originality',
+              component: Originality,
+              children: [
+                {
+                  path: '/home/advertisement/originality/1',
+                  name: 'Plan1',
+                  component: Plan1,
+                  children: [
+                    {
+                      path: '/home/advertisement/originality/1/plans',
+                      name: 'plans',
+                      component: Plans
+                    },
+                    {
+                      path: '/home/advertisement/originality/1/planes',
+                      name: 'planes',
+                      component: Planes
+                    }
+                  ]
+                },
+                {
+                  path: '/home/advertisement/originality/2',
+                  name: 'Plan2',
+                  component: Plan2
+                },
+                {
+                  path: '/home/advertisement/originality/3',
+                  name: 'Plan3',
+                  component: Plan3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          path: '/home/data',
+          name: 'Data',
+          component: Data
+        },
+        {
+          path: '/home/holdAll',
+          name: 'HoldAll',
+          component: HoldAll
+        }
+      ]
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    }
+
+  ]
+})
+router.beforeEach((to, from, next) => {
+  let isLogin = checkLoginStatus()
+  if (to.name == 'login') {
+    next()
+  } else {
+    if (!isLogin) {
+      next({
+        name: 'login'
+      })
+    } else {
+      next()
+    }
+  }
+
+  next()
+})
+function checkLoginStatus () {
+  let tk = localStorage.getItem('token')
+  return !!tk
+}
+export default router
+
 
 # 数据请求，及封装，全局请求接口
-。。。。。
+
+数据请求用的axios 里面有请求拦截和响应拦截，然后将axios的实例请求拦截和响应拦截后再抛出的
+
+封装的全局接口 用的server.js里面的设置跨域成为的全局接口
 
 # 项目中的核心功能和难点功能
-。。。。。
+
+## 核心功能
+
+数据请求拦截
+
+对elementUi及相关功能组件的使用
+
+echarts库的正确使用及图表的更新
+
+## 难点功能
+
+时间区间的处理与计算
+
+图片上传功能
+
 # 数据管理
-。。。。。
-# 遇到的困难及解决方式
-。。。。。
-```
+
+数据的管理主要使用vuex
+
+https://github.com/tianjing06/xiangmu/tree/master/src/store
