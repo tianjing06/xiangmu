@@ -4,7 +4,7 @@
 
 ## 后台管理系统
 
-``` bash
+
 # 技术选型
 项目基于 webpack 模板,框架采用Vue,使用到的技术有vuex，Element-UI，es6，less等。
 考虑到开发人员比较少，vue配套的element-ui框架及脚手架比较完善和满足需求，所以选用vue框架。
